@@ -25,7 +25,8 @@ if (isset($_POST['addProduct'])) {
             Swal.fire({
                 title: 'Success!',
                 text: 'Product added successfully!',
-                icon: 'success'
+                icon: 'success',
+                backdrop: false,
             }).then(function() {
                 window.location.href = 'admin.php';
             });
@@ -38,7 +39,8 @@ if (isset($_POST['addProduct'])) {
             Swal.fire({
                 title: 'Error!',
                 text: 'Failed to add product. Try again!',
-                icon: 'error'
+                icon: 'error',
+                backdrop: false,
             });
         });
         </script>";

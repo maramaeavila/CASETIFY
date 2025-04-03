@@ -54,11 +54,7 @@ if (!isset($_SESSION['user_email'])) {
                 text: '<?php echo $error; ?>',
                 confirmButtonColor: '#d33',
                 background: '#f8f9fa',
-                backdrop: `
-                rgba(0, 0, 0, 0.4)
-                url('uploads/background.jpg') 
-                center / cover no-repeat
-            `
+                backdrop: false,
             }).then(() => {
                 window.location.href = '<?php echo $redirect_url; ?>';
             });
@@ -96,14 +92,14 @@ if (!isset($_SESSION['user_email'])) {
                     <?php endif; ?>
                 </div>
             </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h4>Description</h4>
+                    <p><?php echo nl2br(htmlspecialchars($product['proddescription'])); ?></p>
+                </div>
+            </div>
         </section>
     <?php endif; ?>
-
-    <section id="banner">
-        <div>
-            <!--  -->
-        </div>
-    </section>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/singleproduct.js"></script>

@@ -79,13 +79,19 @@ $(document).ready(function () {
           icon: "success",
           title: "Success!",
           text: "Product updated successfully.",
+          backdrop: false,
         }).then(() => {
           $("#editproduct").modal("hide");
           location.reload();
         });
       },
       error: function () {
-        Swal.fire("Error!", "Failed to update product.", "error");
+        Swal.fire({
+          title: "Error",
+          text: "Failed to update product.",
+          icon: "error",
+          backdrop: false,
+        });
       },
     });
   });
@@ -104,6 +110,7 @@ $(".btn-danger").click(function () {
     confirmButtonColor: "#d33",
     cancelButtonColor: "#6c757d",
     confirmButtonText: "Yes, delete it!",
+    backdrop: false,
   }).then((result) => {
     if (result.isConfirmed) {
       $.ajax({
@@ -111,13 +118,23 @@ $(".btn-danger").click(function () {
         type: "POST",
         data: { prod_id: prod_id },
         success: function (response) {
-          Swal.fire("Deleted!", "Product has been deleted.", "success");
+          Swal.fire({
+            title: "Deleted!",
+            text: "Product has been deleted.",
+            icon: "success",
+            backdrop: false,
+          });
           row.fadeOut(500, function () {
             $(this).remove();
           });
         },
         error: function () {
-          Swal.fire("Error!", "Failed to delete product.", "error");
+          Swal.fire({
+            title: "Error",
+            text: "Failed to delete product.",
+            icon: "error",
+            backdrop: false,
+          });
         },
       });
     }

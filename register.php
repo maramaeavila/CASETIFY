@@ -157,13 +157,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <script>
         <?php if (!empty($success)): ?>
-            showAlert('success', 'Success!', '<?php echo $success; ?>', 'login.php');
+            Swal.fire({
+                title: 'Success!',
+                text: '<?php echo $success; ?>',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                backdrop: false,
+                willClose: () => {
+                    window.location.href = 'login.php';
+                }
+            });
         <?php endif; ?>
 
         <?php if (!empty($error)): ?>
-            showAlert('error', 'Oops...', '<?php echo $error; ?>');
+            Swal.fire({
+                title: 'Oops...',
+                text: '<?php echo $error; ?>',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                backdrop: false
+            });
         <?php endif; ?>
     </script>
+
 
 </body>
 

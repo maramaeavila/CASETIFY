@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.getElementById("toggle-btn");
+  const sidebar = document.querySelector(".sidebar");
+  const content = document.querySelector(".content");
+
+  toggleBtn.addEventListener("click", function () {
+    sidebar.classList.toggle("show");
+    content.classList.toggle("sidebar-open");
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("main.content section");
   const links = document.querySelectorAll(".sidebar ul li a");
 

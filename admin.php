@@ -1,6 +1,5 @@
 <?php
 include "connection.php";
-// session_start();
 
 if (!isset($_SESSION['admin_id'])) {
     header("Location: login.php");
@@ -63,14 +62,16 @@ $product_result = $conn->query($product_query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="styleadmin.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 
 <body>
+    <button id="toggle-btn" class="toggle-btn">☰</button>
+
     <nav class="sidebar">
         <ul>
             <li>
@@ -428,7 +429,6 @@ $product_result = $conn->query($product_query);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/admin.js"></script>
     <script src="js/manageprod.js"></script>
-
 </body>
 
 </html>

@@ -73,7 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 icon: 'error',
                 title: 'Login Failed',
                 text: '<?php echo $error; ?>',
-                confirmButtonColor: '#d33'
+                confirmButtonColor: '#d33',
+                backdrop: false,
             });
         <?php endif; ?>
     </script>

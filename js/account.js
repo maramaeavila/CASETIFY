@@ -15,6 +15,7 @@ document
           title: data.title,
           text: data.message,
           icon: data.status,
+          backdrop: false,
         }).then(() => {
           if (data.redirect) {
             window.location.href = data.redirect;
@@ -48,7 +49,22 @@ function changepw() {
     data: $("#account-form").serialize(),
     type: "POST",
     success: function (msg) {
-      alert(msg);
+      Swal.fire({
+        title: "Success",
+        text: msg,
+        icon: "success",
+        confirmButtonText: "OK",
+        backdrop: false,
+      });
+    },
+    error: function () {
+      Swal.fire({
+        title: "Error",
+        text: "Failed to change password. Please try again.",
+        icon: "error",
+        confirmButtonText: "OK",
+        backdrop: false,
+      });
     },
   });
 }

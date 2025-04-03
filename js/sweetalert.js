@@ -4,6 +4,7 @@ function showAlert(type, title, message, redirectUrl = null) {
     title: title,
     text: message,
     showConfirmButton: true,
+    backdrop: false,
   }).then(() => {
     if (redirectUrl) {
       window.location.href = redirectUrl;

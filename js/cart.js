@@ -24,11 +24,21 @@ $(document).ready(function () {
           });
           $("#cart-table").html(cartHTML);
         } else {
-          Swal.fire("Error", response.message, "error");
+          Swal.fire({
+            title: "Error",
+            text: "Failed to load cart",
+            icon: "error",
+            backdrop: false,
+          });
         }
       },
       error: function () {
-        Swal.fire("Error", "Failed to load cart", "error");
+        Swal.fire({
+          title: "Error",
+          text: "Failed to load cart",
+          icon: "error",
+          backdrop: false,
+        });
       },
     });
   }
@@ -57,7 +67,12 @@ $(document).ready(function () {
     });
 
     if (selectedItems.length === 0) {
-      Swal.fire("No Selection", "Please select at least one item.", "warning");
+      Swal.fire({
+        title: "No Selection",
+        text: "Please select at least one item.",
+        icon: "warning",
+        backdrop: false,
+      });
       return;
     }
 
@@ -70,15 +85,30 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         if (response.status === "success") {
-          Swal.fire("Success", response.message, "success");
+          Swal.fire({
+            title: "Success",
+            text: response.message,
+            icon: "success",
+            backdrop: false,
+          });
           loadCart();
           $("#total-amount").text("0.00");
         } else {
-          Swal.fire("Error", response.message, "error");
+          Swal.fire({
+            title: "Error",
+            text: response.message,
+            icon: "error",
+            backdrop: false,
+          });
         }
       },
       error: function () {
-        Swal.fire("Error", "Failed to add items", "error");
+        Swal.fire({
+          title: "Error",
+          text: "Failed to add items",
+          icon: "error",
+          backdrop: false,
+        });
       },
     });
   });

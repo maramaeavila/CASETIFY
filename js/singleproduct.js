@@ -27,6 +27,7 @@ function addToCart(productId) {
           text: "Product successfully added to your cart.",
           confirmButtonText: "Go to Cart",
           allowOutsideClick: false,
+          backdrop: false,
         }).then((result) => {
           if (result.isConfirmed) {
             window.location.href = "cart.php";
@@ -38,6 +39,7 @@ function addToCart(productId) {
           title: "Error",
           text: response.message,
           confirmButtonText: "OK",
+          backdrop: false,
         });
       }
     },
@@ -47,6 +49,7 @@ function addToCart(productId) {
         title: "Oops...",
         text: "An error occurred while adding to cart.",
         confirmButtonText: "OK",
+        backdrop: false,
       });
     },
   });

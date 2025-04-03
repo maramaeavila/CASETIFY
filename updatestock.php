@@ -18,7 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         title: 'Success!',
                         text: 'Stock updated successfully!',
                         icon: 'success',
-                        confirmButtonText: 'OK'
+                        confirmButtonText: 'OK',
+                        backdrop: false,
                     }).then(() => {
                         window.location.href = 'admin.php#addstock';
                     });
@@ -32,7 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         title: 'Error!',
                         text: 'Failed to update stock.',
                         icon: 'error',
-                        confirmButtonText: 'Try Again'
+                        confirmButtonText: 'Try Again',
+                        backdrop: false,
                     }).then(() => {
                         window.location.href = 'admin.php#addstock';
                     });
@@ -47,7 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     title: 'Invalid Input!',
                     text: 'Please enter a valid stock quantity.',
                     icon: 'warning',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    backdrop: false,
                 }).then(() => {
                     window.location.href = 'admin.php#addstock';
                 });
