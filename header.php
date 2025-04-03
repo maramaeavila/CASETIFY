@@ -29,6 +29,10 @@
                         <a href="cart.php"><i class="fa fa-cart-shopping white"></i></a>
                     </li>
                     <li class="nav-item">
+                        <a href="checkout.php" class="checkout-link">
+                            <i class="fa fa-credit-card white"></i></a>
+                    </li>
+                    <li class="nav-item">
                         <a href="account.php"><i class="fa fa-user-circle white"></i></a>
                     </li>
                     <li class="nav-item">

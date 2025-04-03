@@ -90,9 +90,11 @@ $(document).ready(function () {
             text: response.message,
             icon: "success",
             backdrop: false,
+          }).then(() => {
+            loadCart();
+            $("#total-amount").text("0.00");
+            window.location.href = "checkout.php";
           });
-          loadCart();
-          $("#total-amount").text("0.00");
         } else {
           Swal.fire({
             title: "Error",

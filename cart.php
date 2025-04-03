@@ -41,7 +41,7 @@
 
             <h4 class="mt-5">Total: ₱ <span id="total-amount">0.00</span></h4>
 
-            <button id="add-selected" class="submitbtn">Add Selected to Order</button>
+            <button id="add-selected" class="submitbtn">Checkout</button>
         </div>
     </section>
 

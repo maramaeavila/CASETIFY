@@ -1,5 +1,8 @@
 <?php
+session_start();
 include "connection.php";
+
+header("Content-Type: application/json");
 
 if (!isset($_SESSION['user_email'])) {
     echo json_encode(["status" => "error", "message" => "User not logged in"]);
@@ -27,21 +30,38 @@ if ($user_result->num_rows == 0) {
 $user = $user_result->fetch_assoc();
 $user_id = $user['id'];
 
-$order_query = "INSERT INTO orders (user_id, product_name, quantity, price) 
-                SELECT user_id, product_name, quantity, price FROM cart WHERE user_id = ? AND id = ?";
+$order_query = "INSERT INTO checkout (user_id, product_id, product_name, image, quantity, price)
+                SELECT ?, product_id, product_name, image, quantity, price FROM cart WHERE user_id = ? AND id = ?";
 $order_stmt = $conn->prepare($order_query);
 
 $delete_query = "DELETE FROM cart WHERE user_id = ? AND id = ?";
 $delete_stmt = $conn->prepare($delete_query);
 
+$items_processed = 0;
+
 foreach ($_POST['cart_ids'] as $cart_id) {
     $cart_id = intval($cart_id);
 
-    $order_stmt->bind_param("ii", $user_id, $cart_id);
-    $order_stmt->execute();
+    $check_cart = $conn->prepare("SELECT id FROM cart WHERE user_id = ? AND id = ?");
+    $check_cart->bind_param("ii", $user_id, $cart_id);
+    $check_cart->execute();
+    $result = $check_cart->get_result();
 
-    $delete_stmt->bind_param("ii", $user_id, $cart_id);
-    $delete_stmt->execute();
+    if ($result->num_rows > 0) {
+
+        $order_stmt->bind_param("iii", $user_id, $user_id, $cart_id);
+        if ($order_stmt->execute()) {
+
+            $delete_stmt->bind_param("ii", $user_id, $cart_id);
+            $delete_stmt->execute();
+            $items_processed++;
+        }
+    }
 }
 
-echo json_encode(["status" => "success", "message" => "Selected items added to orders"]);
+if ($items_processed > 0) {
+    echo json_encode(["status" => "success", "message" => "Items moved to checkout", "redirect" => "checkout.php"]);
+} else {
+    echo json_encode(["status" => "error", "message" => "No items were moved"]);
+}
+exit();
