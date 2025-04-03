@@ -1,0 +1,209 @@
+html, body {
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body.modal-open{
+    padding-right: 0px !important;
+    overflow: hidden;
+}
+
+.navbar {
+    background-color: white !important;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(234, 167, 156, 0.6);
+    z-index: 1000;
+}
+
+.navbar-brand img {
+    width: 100px;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 15px;
+    margin-right: 30px !important;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #EAA79C;
+    font-weight: bold;
+    font-size: 23px;
+    text-shadow: 2px 2px 3px rgba(234, 167, 156, 0.6);
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+    padding: 5px 10px;
+}
+
+.navbar a:hover {
+    color: gray; 
+    text-shadow: 3px 3px 5px rgba(234, 167, 156, 0.9);
+    transform: scale(1.1);
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+#login{
+    background-image: url("../imgs/pinksassy.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; 
+    height: 100vh; 
+    text-align: center;
+    position: relative;
+}
+
+#login .container {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#login h2{
+    font-size: 40px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+#login-form{
+    width: 50%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #000000;
+}
+#login-form input{
+    width: 50%;
+    margin: 5px auto;
+}
+#login-form #login-btn{
+    background-color: #000000;
+    color: white;
+}
+#login-form #register-url{
+    color: #212529;
+}
+
+.submitbtn{
+    border-radius: 8px;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #EAA79C;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 50%;
+}
+.submitbtn:hover{
+    background-color: #EAA79C;
+    border: none;
+    color: white;
+}
+
+.btn-stock{
+    background-color: #EAA79C !important;
+    border: 2px #EAA79C !important;
+    color: white !important;
+}
+
+.btn-link{
+    color: black;
+    font-weight: 300;
+}
+.btn-link:hover{
+    color: #EAA79C;
+    font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar {
+        font-size: 16px;
+    }
+
+    .navbar-brand img {
+        width: 90px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar-toggler {
+        font-size: 20px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    #login-form {
+        width: 90%;
+        padding: 15px;
+        text-align: center;
+    }
+    #login h2{
+        font-size: 35px;
+    }
+    #login-form input{
+        width: 100%;
+        padding: 10px;
+    }
+    #login-form #login-btn {
+        width: 100%;
+        padding: 12px;
+    }
+    .submitbtn {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand img {
+        width: 80px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+    }
+}    
